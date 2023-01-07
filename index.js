@@ -31,6 +31,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser({ path: '/' }));
 app.use(busboy());
+mongoose.set('strictQuery', true)
 
 for (let x of ['routes']) require(`./handlers/${x}`)(app);
 
